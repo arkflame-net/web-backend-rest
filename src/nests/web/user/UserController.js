@@ -1,6 +1,12 @@
 import User from "./User";
 import MongoDatabase from "../../../database/MongoDatabase";
 
+function getById(id) {
+    return MongoDatabase.findOne("users", {
+        "_id": id,
+    });
+}
+
 function getByName(name) {
     return MongoDatabase.findOne("users", {
         "name": name,
@@ -16,6 +22,7 @@ function getByEmail(email) {
 function fromJson(json) {
     let user = new User();
 
+    user.setId(json._id);
     user.setName(json.name);
     user.setEmail(json.email);
     user.setPictureUrl(json.pictureUrl);

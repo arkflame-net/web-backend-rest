@@ -1,6 +1,10 @@
 class User {
     fields = {};
 
+    setId(id) {
+        this.fields._id = id;
+    }
+
     setName(name) {
         this.fields.name = name;
     }
