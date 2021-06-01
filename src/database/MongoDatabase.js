@@ -4,11 +4,18 @@ const url = 'mongodb://127.0.0.1:27017';
 const databaseName = 'arkflame';
 const client = new MongoClient(url);
 
-function findOne(collectionName, params) {
+async function findOne(collectionName, params) {
     let collection = this.database.collection(collectionName);
-    let document = collection.findOne(params);
+    let document = await collection.findOne(params);
 
     return document;
+}
+
+async function create(collectionName, params) {
+    let collection = this.database.collection(collectionName);
+    let result = await collection.insertOne(params);
+
+    return await findOne(collectionName, result.insertedId);
 }
 
 function connect() {
@@ -32,5 +39,5 @@ client.on("disconnect", () => {
 connect();
 
 export default {
-    find,
+    findOne,
 }

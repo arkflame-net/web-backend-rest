@@ -3,6 +3,7 @@
     "@babel/core": "^7.14.3",
     "@babel/node": "^7.14.2",
     "@babel/preset-env": "^7.14.4",
+    "Validator": "^1.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.6.8"
   },

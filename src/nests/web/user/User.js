@@ -42,6 +42,6 @@ class User {
     }
 
     toJson() {
-        return json;
+        return { ...fields };
     }
 }

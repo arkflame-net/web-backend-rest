@@ -1,21 +1,29 @@
 import User from "./User";
 import MongoDatabase from "../../../database/MongoDatabase";
 
-function getById(id) {
-    return MongoDatabase.findOne("users", {
+async function getById(id) {
+    return await MongoDatabase.findOne("users", {
         "_id": id,
     });
 }
 
-function getByName(name) {
-    return MongoDatabase.findOne("users", {
+async function getByName(name) {
+    return await MongoDatabase.findOne("users", {
         "name": name,
     });
 }
 
-function getByEmail(email) {
-    return MongoDatabase.findOne("users", {
+async function getByEmail(email) {
+    return await MongoDatabase.findOne("users", {
         "email": email,
+    });
+}
+
+async function create(name, email, password) {
+    return await MongoDatabase.create("users", {
+        name,
+        email,
+        password,
     });
 }
 
