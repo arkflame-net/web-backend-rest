@@ -35,3 +35,10 @@ function fromJson(json) {
 
     return user;
 }
+
+export default {
+    getById,
+    getByName,
+    getByEmail,
+    fromJson,
+}
